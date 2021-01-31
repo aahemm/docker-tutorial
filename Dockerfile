@@ -5,4 +5,4 @@ WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
-CMD ["/bin/bash", "start.sh"]
+ENTRYPOINT ["/bin/bash", "start.sh"]
