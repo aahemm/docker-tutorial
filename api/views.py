@@ -1,4 +1,5 @@
 from rest_framework import generics, permissions
+from rest_framework.response import Response
 from blog.models import Author, BlogPost, Comment
 from .serializers import AuthorSerializer, BlogPostSerializer
 from django.contrib.auth.models import User
@@ -7,6 +8,9 @@ class AuthorListAPIView(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = AuthorSerializer
     # permission_classes = (permissions.IsAuthenticated,)
+    
+    def get(self, request, *args, **kwargs):
+        return Response("Hello from Aliakbar!")
     
 class AuthorChangeAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
